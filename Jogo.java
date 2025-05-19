@@ -13,12 +13,12 @@ class Jogo {
         for (Propriedade p : config)
             tabuleiro.add(new Propriedade(p.venda, p.aluguel));
 
-        jogadores = List.of(
+        jogadores = new ArrayList<>(Arrays.asList(
             new Jogador("1", Comportamento.IMPULSIVO),
             new Jogador("2", Comportamento.EXIGENTE),
             new Jogador("3", Comportamento.CAUTO),
             new Jogador("4", Comportamento.ALEATORIO)
-        );
+        ));
         Collections.shuffle(jogadores);
         rodadas = 0;
     }
