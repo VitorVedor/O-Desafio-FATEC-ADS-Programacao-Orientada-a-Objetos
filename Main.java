@@ -19,17 +19,17 @@ public class Main {
             totalRodadas += jogo.rodadas;
         }
 
-        System.out.println("\n📊 RESULTADOS DA SIMULAÇÃO 📊");
+        System.out.println("\n Resultados da Simulacao de 300 Partidas:");
         System.out.println("Partidas que terminaram por TIMEOUT: " + timeouts);
-        System.out.printf("Média de turnos por partida: %.2f\n", totalRodadas / 300.0);
+        System.out.printf("Media de turnos por partida: %.2f\n", totalRodadas / 300.0);
 
         for (Comportamento c : Comportamento.values()) {
             int v = vitorias.getOrDefault(c, 0);
-            System.out.printf("Vitórias do %s: %.2f%% (%d)\n", c, (v / 300.0) * 100, v);
+            System.out.printf("Vitorias do %s: %.2f%% (%d)\n", c, (v / 300.0) * 100, v);
         }
 
         Comportamento melhor = Collections.max(vitorias.entrySet(), Map.Entry.comparingByValue()).getKey();
-        System.out.println("Comportamento que MAIS VENCE: " + melhor);
+        System.out.println("Comportamento que mais venceu: " + melhor);
     }
 
     private static List<Propriedade> carregarPropriedades(String arquivo) throws IOException {
