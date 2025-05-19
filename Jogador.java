@@ -33,11 +33,12 @@ class Jogador {
     }
 
     boolean deveComprar(Propriedade p) {
-        return switch (comportamento) {
-            case IMPULSIVO -> true;
-            case EXIGENTE -> p.aluguel > 50;
-            case CAUTELOSO -> saldo - p.venda >= 80;
-            case ALEATORIO -> new Random().nextBoolean();
-        };
-    }
+    if (saldo < p.venda || p.temDono()) return false;
+
+    return switch (comportamento) {
+        case IMPULSIVO -> true;
+        case EXIGENTE -> p.aluguel > 50;
+        case CAUTELOSO -> (saldo - p.venda) >= 80;
+        case ALEATORIO -> new Random().nextBoolean();
+    };
 }
