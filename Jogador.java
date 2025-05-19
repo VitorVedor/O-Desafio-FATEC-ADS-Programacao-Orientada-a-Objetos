@@ -36,7 +36,7 @@ class Jogador {
         return switch (comportamento) {
             case IMPULSIVO -> true;
             case EXIGENTE -> p.aluguel > 50;
-            case CAUTO -> saldo - p.venda >= 80;
+            case CAUTELOSO -> saldo - p.venda >= 80;
             case ALEATORIO -> new Random().nextBoolean();
         };
     }
